@@ -1,0 +1,211 @@
+{
+    "HumanEval/14": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "An empty string contains no prefixes, so the function should return an empty list."
+    },
+    "HumanEval/26": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "Removing repeated integers implies eliminating all occurrences of those integers."
+    },
+    "HumanEval/50": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "        if 'a' <= c <= 'z':\n            return chr((ord(c) - ord('a') - 3) % 26 + ord('a'))\n        elif 'A' <= c <= 'Z':\n            return chr((ord(c) - ord('A') - 3) % 26 + ord('A'))\n",
+        "Reason": "You misunderstood the shift value. The encode_shift shifting every character by 5 in the alphabet, not 3",
+        "Hint": "Modify the decode function to shift characters back by 5 instead of 3 to correctly reverse the encoding."
+    },
+    "HumanEval/65": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "All implemented lines are correct but miss component to handle special case based on requirement.",
+        "Reason": "You do not handle the case when shift value exceeds the number of digits in x specified in the instruction correctly.",
+        "Hint": "If the shift value exceeds the number of digits in x, the digits are reversed."  
+    },
+    "HumanEval/67": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The input string format is 'X apples and Y oranges', where X and Y are integers."
+    },
+    "HumanEval/75": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "    for i in range(2, int(a ** (1/3)) + 1):",
+        "Reason": "The looping condition for the initial 'i' is incorrect. Ending at the cubic root of 'a' cannot ensure consideration of all necessary factors.",
+        "Hint": "For the loop involving 'i', you should extend the range from 2 to the square root of 'a' instead of the cubic root."
+    },
+    "HumanEval/76": {
+        "Self Reflection": "",
+        "Usage": "For example:\n    is_simple_power(1, 4) => true\n    is_simple_power(2, 2) => true\n    is_simple_power(8, 2) => true\n    is_simple_power(3, 2) => false\n    is_simple_power(3, 1) => false\n    is_simple_power(5, 3) => false",
+        "Failure": "is_simple_power(1, 12) should return True, but the current implementation return False instead.",
+        "Line": "    if n == 0:\n        return x == 1\n    if n == 1:\n        return True",
+        "Reason": "You missed the case when 'x' == 1 and and mishandled the cases when 'n' is 0 or 1.",
+        "Hint": "Handle these cases: any number to the power of 0 is 1, 0 to any power is 0 (except 0^0 which is 1), and 1 to any power is always 1."
+    },
+    "HumanEval/83": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "        ends_with_1 = 10 ** (n - 1)",
+        "Reason": "Your calculation of the number of n-digit numbers ending with 1 is incorrect.",
+        "Hint": "There are 9 * (10 ** (n - 2)) n-digit numbers ending with 1. "        
+    },
+    "HumanEval/84": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "By total sum of its digit in binary, it means sum the digit first, and then turn it into binary."
+    },
+    "HumanEval/91": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The sentence should begin with the word 'I'."
+    },
+    "HumanEval/92": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The function should check if all passed numbers are integers."
+    },
+    "HumanEval/93": {
+        "Self Reflection": "",
+        "Usage": "Examples:\n    >>> encode('test')\n    'TGST'\n    >>> encode('This is a message')\n    'tHKS KS C MGSSCGG'",
+        "Failure": "encode('test') should return 'TGST' but got 'TOST' instead.",
+        "Line": "    def shift_vowel(vowel):\n        vowels = 'aeiouAEIOU'\n        forward_shift = 2\n        index = vowels.index(vowel)\n        return vowels[(index + forward_shift) % 10]",
+        "Clarification": "By 'two positions in the alphabet', it refers to shifting all English letters, not just the vowels.",
+        "Reason": "Your understanding of vowel shift is incorrect; it should be based on the entire alphabet, not just the vowels, according to the functional instructions.",
+        "Hint": "You can use the ord function to get the unicode code point of a character and the chr function to convert a code point back to a character, enabling you to shift vowels by adding 2 to their code points and wrapping around using modulo arithmetic."
+    },
+    "HumanEval/95": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "        if not (key.islower() or key.isupper()):",
+        "Reason": "Your logic for checking all strings is incorrect because it ignores cases where the key is not a string.",
+        "Hint": "Make sure the function returns False if any key is not a string, or if the dictionary is empty. It should only return True if all keys are strings that are either all lowercase or all uppercase."
+    },
+    "HumanEval/102": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "If x > y, return -1."
+    },
+    "HumanEval/103": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The binary output should include the '0b' prefix, which denotes a binary number."
+    },
+    "HumanEval/105": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "    if not arr:\n        return []\n    arr.sort(reverse=True)\n",
+        "Reason": "The code sorts all numbers, but it is required to include and sort only integers between 1 to 9.",
+        "Hint": "Filter the numbers to include only those within the range of 1 to 9 before sorting.",
+        "Clarification": "The instruction means sort only the integers that are between 1 and 9 inclusive, ignoring all other numbers."
+    },
+    "HumanEval/108": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "        return sum(int(d) if i > 0 else -int(d) for i, d in enumerate(str(n)))",
+        "Reason": "You logic for sum of digit for single number is incorrect and does not align with the functional requirements in the instructions.",
+        "Hint": "The sum of digits of a positive number is simply summing over all digits. When summing the digits of a negative number, treat the first digit as negative and all following digits as positive. "
+    },
+    "HumanEval/111": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "", 
+        "Line": "    max_freq = max(frequency.values())\n"   ,
+        "Reason": "Your code produces a value error when the input is an empty string.",
+        "Hint": "Handle the case of an empty string by avoiding methods that rely on indexing in such case."
+    },
+    "HumanEval/113": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "Each element 'i' of the output should be 'the number of odd elements in the string i of the input'. In this output, replace every instance of the letter 'i' in the text, even within words, with the number of odd digits found in the 'i'th string of the input."
+    },
+    "HumanEval/119": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "Most parts of the function are incorrect.",
+        "Reason": "You do not consider different directions of concatenation. Your method to check if the concatenated parentheses string is balanced is incorrect.",
+        "Hint": "Start by implementing a correct method to determine whether a parentheses string is balanced. Ensure that the balance count between open and close brackets never goes below zero and is zero after checking the entire string. Then, try concatenating the strings in both possible directions."
+    },
+    "HumanEval/125": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "        return sum(1 for c in txt if c.islower() and (ord(c) - ord('a')) % 2 == 0)",
+        "Reason": "You are not following the instruction for cases where strings cannot be separated by spaces and commas. In such cases, you should be counting odd not even.",
+        "Hint": "When strings cannot be separated by spaces and commas, adjust your function to count the number of lowercase letters with odd indices in the alphabet instead of even (i.e., ord(c) - ord('a')) % 2 == 1)."
+    },
+    "HumanEval/126": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The instruction contains an error. The term 'more than 1 occurrence' should actually be 'more than 2 occurrences'. In addition to other requirements, if any number occurs more than twice, return False."
+    },
+    "HumanEval/127": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "    overlap_length = end_min - start_max + 1\n",
+        "Reason": "Your calculation for the intersection length is incorrect based on the provided example in the instruction.",
+        "Hint": "The length of intersection should be 'end' - 'start' based on the provided example in the instruction."
+    },
+    "HumanEval/129": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "The code about visited nodes",
+        "Reason": "The handling of visited cells is incorrect because it unnecessarily prevents revisiting cells that are allowed to be revisited.",
+        "Hint": "You are allowed to revisit cells that you have already reached, so you should not keep track of visited cells. All other implementations are correct.",
+        "Clarification": "You are allowed to return to a cell that you have previously reached."
+    },
+    "HumanEval/130": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "Most parts of the function are incorrect.",
+        "Reason": "The method used to calculate each element in the Tribonacci sequence is incorrect.",
+        "Hint": "Implement a method to calculate the next Tribonacci number based on the three preceding numbers in the sequence. Use a loop to continue this calculation up to the nth element."
+    },
+    "HumanEval/132": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "A 'nested square bracket' refers to at least one square bracket enclosed within another square bracket. The function should return true if the input string contains at least one such instance, regardless of whether other brackets in the string are properly closed. Return false if no nested square brackets are found."
+    },
+    "HumanEval/135": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Line": "'    for i in range(1, len(arr)):' and '            return i - 1'",
+        "Reason": "You returned the incorrect index for the element that is smaller than its predecessor. Additionally, you failed to return the index of the largest such element.",
+        "Hint": "Check the list in backward order to find the first instance where an element is smaller than the one before it. Make sure to return the index of this element, not its predecessor."
+    },
+    "HumanEval/145": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "In the sum of digit number function, if the input number is negative, the first digit of the sum should be considered as negative."
+    },
+    "HumanEval/163": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The term 'even digits' refers exclusively to single-digit even numbers."
+    }
+}

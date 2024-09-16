@@ -1,0 +1,226 @@
+{
+    "HumanEval/10": {
+        "Self Reflection": "",
+        "Usage": "    >>> make_palindrome('')\n    ''\n    >>> make_palindrome('cat')\n    'catac'\n    >>> make_palindrome('cata')\n ,   'catac'",
+        "Failure": "make_palindrome('jerry') should return jerryrrej, but the current implementation return jerryj instead.",
+        "Line": "    for i in range(len(string), 0, -1):\n        if string[:i] == string[:i][::-1]:\n",
+        "Reason": "Your approach is incorrect because you're checking if the prefix is a palindrome when you should be ensuring that the suffix is a palindrome.",
+        "Hint": "Divide the string into suffix and prefix. Identify the longest palindromic suffix. Then, append the reverse of the prefix to the original string. "
+    },
+    "HumanEval/65": {
+        "Self Reflection": "",
+        "Usage": "    >>> circular_shift(12, 1)\n    \"21\"\n    >>> circular_shift(12, 2)\n    \"12\"",
+        "Failure": "circular_shift(97, 8) should return 79, but the current implementation return 97 instead.",
+        "Line": "All implemented lines are correct but miss component to handle special case based on requirement.",
+        "Reason": "You do not handle the case when shift value exceeds the number of digits in x specified in the instruction correctly.",
+        "Hint": "If the shift value exceeds the number of digits in x, the digits are reversed."  
+    },
+    "HumanEval/75": {
+        "Self Reflection": "",
+        "Usage": "Example:\n    is_multiply_prime(30) == True\n    30 = 2 * 3 * 5",
+        "Failure": "is_multiply_prime(10) should return False, but the current implementation return True instead.",
+        "Line": "                    if is_prime(k) and k >= j:",
+        "Reason": "You cannot ensure that 'a' can be devided by (i * j).",
+        "Hint": "Ensure that 'a' can be devided by (i * j). In other words, a % (i * j) == 0."
+    },
+    "HumanEval/76": {
+        "Self Reflection": "",
+        "Usage": "For example:\n    is_simple_power(1, 4) => true\n    is_simple_power(2, 2) => true\n    is_simple_power(8, 2) => true\n    is_simple_power(3, 2) => false\n    is_simple_power(3, 1) => false\n    is_simple_power(5, 3) => false",
+        "Failure": "is_simple_power(1, 12) should return True, but the current implementation return False instead.",
+        "Line": "    if n == 0:\n        return x == 1\n    if n == 1:\n        return True",
+        "Reason": "You missed the case when 'x' == 1 and and mishandled the cases when 'n' is 0 or 1.",
+        "Hint": "Handle these cases: any number to the power of 0 is 1, 0 to any power is 0 (except 0^0 which is 1), and 1 to any power is always 1."
+    },
+    "HumanEval/77": {
+        "Self Reflection": "",
+        "Usage": "Examples:\n    iscube(1) ==> True\n    iscube(2) ==> False\n    iscube(-1) ==> True\n    iscube(64) ==> True\n    iscube(0) ==> True\n    iscube(180) ==> False",
+        "Failure": "iscube(-1) should return True but got 'TypeError: type complex doesn't define __round__ method' instead.",
+        "Line": "    cube_root = round(a ** (1/3))",
+        "Reason": "Your code will result in a type error when the input is a negative number.",
+        "Hint": "To compute the cube root of a negative number correctly, negate and compute the cube root of the absolute value, then apply the negative sign to the result. This avoid any potential type error."
+    },
+    "HumanEval/83": {
+        "Self Reflection": "",
+        "Usage": "    >>> starts_one_ends(2) = 18\n    >>> starts_one_ends(3) = 180",
+        "Failure": "starts_one_ends(2) should return 18 but return 19 instead.",
+        "Line": "        ends_with_1 = 10 ** (n - 1)",
+        "Reason": "Your calculation of the number of n-digit numbers ending with 1 is incorrect.",
+        "Hint": "There are 9 * (10 ** (n - 2)) n-digit numbers ending with 1. "        
+    },
+    "HumanEval/88": {
+        "Self Reflection": "",
+        "Usage": "Examples:\n    * sort_array([]) => []\n    * sort_array([5]) => [5]\n    * sort_array([2, 4, 3, 0, 1, 5]) => [0, 1, 2, 3, 4, 5]\n    * sort_array([2, 4, 3, 0, 1, 5, 6]) => [6, 5, 4, 3, 2, 1, 0]",
+        "Failure": "sort_array([]) should return [] but your implementation got 'IndexError: list index out of range'.",
+        "Line": "    if (sorted_array[0] + sorted_array[-1]) % 2 == 0:",
+        "Reason": "You did not handle the case when input is an empty list.",
+        "Hint": "If the input is an empty list, sorting is unnecessary."
+    },
+    "HumanEval/93": {
+        "Self Reflection": "",
+        "Usage": "Examples:\n    >>> encode('test')\n    'TGST'\n    >>> encode('This is a message')\n    'tHKS KS C MGSSCGG'",
+        "Failure": "encode('test') should return 'TGST' but got 'TOST' instead.",
+        "Line": "    def shift_vowel(vowel):\n        vowels = 'aeiouAEIOU'\n        forward_shift = 2\n        index = vowels.index(vowel)\n        return vowels[(index + forward_shift) % 10]",
+        "Reason": "Your understanding of vowel shift is incorrect; it should be based on the entire alphabet, not just the vowels, according to the functional instructions.",
+        "Hint": "You can use the ord function to get the unicode code point of a character and the chr function to convert a code point back to a character, enabling you to shift vowels by adding 2 to their code points and wrapping around using modulo arithmetic."
+    },
+    "HumanEval/95": {
+        "Self Reflection": "",
+        "Usage": "Examples:\n    check_dict_case({\"a\":\"apple\", \"b\":\"banana\"}) should return True.\n    check_dict_case({\"a\":\"apple\", \"A\":\"banana\", \"B\":\"banana\"}) should return False.\n    check_dict_case({\"a\":\"apple\", 8:\"banana\", \"a\":\"apple\"}) should return False.\n    check_dict_case({\"Name\":\"John\", \"Age\":\"36\", \"City\":\"Houston\"}) should return False.\n    check_dict_case({\"STATE\":\"NC\", \"ZIP\":\"12345\" }) should return True.",
+        "Failure": "check_dict_case({\"a\":\"apple\", 8:\"banana\", \"a\":\"apple\"}) should return False but got True instead.",
+        "Line": "    all_lower = all(k.islower() for k in dict if isinstance(k, str))\n    all_upper = all(k.isupper() for k in dict if isinstance(k, str))",
+        "Reason": "Your logic for checking all strings is incorrect because it ignores cases where the key is not a string.",
+        "Hint": "Make sure the function returns False if any key is not a string, or if the dictionary is empty. It should only return True if all keys are strings that are either all lowercase or all uppercase."
+    },
+    "HumanEval/108": {
+        "Self Reflection": "",
+        "Usage": "    >>> count_nums([]) == 0\n    >>> count_nums([-1, 11, -11]) == 1\n    >>> count_nums([1, 1, 2]) == 3",
+        "Failure": "count_nums([-1, -2, 0]) should return 0 but got 2 instead.",
+        "Line": "    def sum_of_digits(num):\n        return sum(int(digit) for digit in str(abs(num)))",
+        "Reason": "You logic for sum of digit for single number is incorrect and does not align with the functional requirements in the instructions.",
+        "Hint": "When summing the digits of a negative number, treat the first digit as negative and all following digits as positive. Consider this when implementing the sum of digits function."
+    },
+    "HumanEval/111": {
+        "Self Reflection": "",
+        "Usage": "Example:\n    histogram('a b c') == {'a': 1, 'b': 1, 'c': 1}\n    histogram('a b b a') == {'a': 2, 'b': 2}\n    histogram('a b c a b') == {'a': 2, 'b': 2}\n    histogram('b b b b a') == {'b': 4}\n    histogram('') == {}",
+        "Failure": "histogram('') should return {} but got 'ValueError: max() arg is an empty sequence' instead.", 
+        "Line": "    max_count = max(letter_count.values())"   ,
+        "Reason": "Your code produces a value error when the input is an empty string.",
+        "Hint": "Handle the case of an empty string by avoiding methods that rely on indexing in such case."
+    },
+    "HumanEval/113": {
+        "Self Reflection": "",
+        "Usage": "    >>> odd_count(['1234567'])\n    [\"the number of odd elements 4n the str4ng 4 of the 4nput.\"]\n    >>> odd_count(['3',\"11111111\"])\n    [\"the number of odd elements 1n the str1ng 1 of the 1nput.\",\n     \"the number of odd elements 8n the str8ng 8 of the 8nput.\"]",
+        "Failure": "odd_count(['1234567']) should return [\"the number of odd elements 4n the str4ng 4 of the 4nput.\"] but got [\"the number of odd elements in the string 4 of the input.\"] instead.",
+        "Line": "        result.append(f'the number of odd elements in the string {count} of the input.')",
+        "Reason": "You did not adhere to the specified output string format in the instructions.",
+        "Hint": "Replace every occurrence of 'i', even those within words."
+    },
+    "HumanEval/122": {
+        "Self Reflection": "",
+        "Usage": "Example:\n\n        Input: arr = [111,21,3,4000,5,6,7,8,9], k = 4\n        Output: 24 # sum of 21 + 3",
+        "Failure": "add_elements([11,21,3,90,5,6,7,8,9], 4) should return 125 but got 3 instead.",
+        "Line": "        if -10 < num < 10:",
+        "Reason": "You misunderstood the concept of 'at most 2-digit'; it includes both 2-digit and 1-digit numbers.",
+        "Hint": "At most 2-digit' numbers range from -99 to 99, not just -10 to 10."
+    },
+    "HumanEval/127": {
+        "Self Reflection": "",
+        "Usage": "samples:\n    intersection((1, 2), (2, 3)) ==> \"NO\"\n    intersection((-1, 1), (0, 4)) ==> \"NO\"\n    intersection((-3, -1), (-5, 5)) ==> \"YES\"",
+        "Failure": "intersection((1, 2), (1, 2))",
+        "Line": "    intersection_length = end_min - start_max + 1",
+        "Reason": "Your calculation for the intersection length is incorrect based on the provided example in the instruction.",
+        "Hint": "The length of intersection should be 'end' - 'start' based on the provided example in the instruction."
+    },
+    "HumanEval/130": {
+        "Self Reflection": "",
+        "Usage": "For example:\n    tri(1) == [1, 3]\n    tri(2) == [1, 3, 2.0]",
+        "Failure": "tri(1) should return [1, 3] but got [1, 3] but got 3 instead.",
+        "Line": "Most implemented lines are correct, but they return the answer in the incorrect data structure.",
+        "Reason": "You misunderstood the specified return data structure in the instructions and omitted an element from the list.",
+        "Hint": "Ensure the return type is a list of n + 1 elements from Tribonacci sequence, starting with the 0-th element (i.e., Tri(0))." 
+    },
+    "HumanEval/134": {
+        "Self Reflection": "",
+        "Usage": "Examples:\n    check_if_last_char_is_a_letter(\"apple pie\") \u279e False\n    check_if_last_char_is_a_letter(\"apple pi e\") \u279e True\n    check_if_last_char_is_a_letter(\"apple pi e \") \u279e False\n    check_if_last_char_is_a_letter(\"\") \u279e False",
+        "Failure": "check_if_last_char_is_a_letter('A') should return True but got 'IndexError: string index out of range' instead.",
+        "Line": "    return last_char.isalpha() and txt[-2] == ' '",
+        "Reason": "Your method does not account for the case of a single letter.",
+        "Hint": "You should check for the additional case where the input is a single-character string."
+    },
+    "HumanEval/135": {
+        "Self Reflection": "",
+        "Usage": "Examples:\n    can_arrange([1,2,4,3,5]) = 3\n    can_arrange([1,2,3]) = -1",
+        "Failure": "can_arrange([4,8,5,7,3]) should return 4 but got 1 instead.",
+        "Line": "'    for i in range(1, len(arr)):' and '            return i - 1'",
+        "Reason": "You returned the incorrect index for the element that is smaller than its predecessor. Additionally, you failed to return the index of the largest such element.",
+        "Hint": "Check the list in backward order to find the first instance where an element is smaller than the one before it. Make sure to return the index of this element, not its predecessor."
+    },
+    "HumanEval/137": {
+        "Self Reflection": "",
+        "Usage": "    compare_one(1, 2.5) \u279e 2.5\n    compare_one(1, \"2,3\") \u279e \"2,3\"\n    compare_one(\"5,1\", \"6\") \u279e \"6\"\n    compare_one(\"1\", 1) \u279e None",
+        "Failure": "compare_one(1, '2,3') should return '2,3' but got '2.3' instead.",
+        "Line": "        return type(a)(parsed_a)\n    elif parsed_b > parsed_a:\n        return type(b)(parsed_b)",
+        "Reason": "You are not returning the correct format for floating-point strings that contain commas.",
+        "Hint": "Ensure to return return the number in its original format for the floating-point strings that contain commas, not just in its original data type."
+    },
+    "HumanEval/140": {
+        "Self Reflection": "",
+        "Usage": "    fix_spaces(\"Example\") == \"Example\"\n    fix_spaces(\"Example 1\") == \"Example_1\"\n    fix_spaces(\" Example 2\") == \"_Example_2\"\n    fix_spaces(\" Example   3\") == \"_Example-3\"",
+        "Failure": "fix_spaces('Yellow Yellow  Dirty  Fellow') should return 'Yellow_Yellow__Dirty__Fellow' but got 'Yellow_Yellow_Dirty_Fellow' instead.",
+        "Line": "        if len(match.group(0)) > 2:",
+        "Reason": "Your solution is incorrect for cases where there are two consecutive white spaces.",
+        "Hint": "Replace any instance of two consecutive white spaces with a '-', not just those instances with more than two."  
+    },
+    "HumanEval/62": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "When the input is constant, the function should return an empty list."
+    },
+    "HumanEval/64": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The function should be case insensitive, meaning it should count both uppercase and lowercase vowels."
+    },
+    "HumanEval/67": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The input string format is 'X apples and Y oranges', where X and Y are integers."
+    },
+    "HumanEval/84": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "By total sum of its digit in binary, it means sum the digit first, and then turn it into binary."
+    },
+    "HumanEval/101": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "In case of empty input string, the function should return an empty list."
+    },
+    "HumanEval/102": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "If x > y, return -1."
+    },
+    "HumanEval/103": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The binary output should include the '0b' prefix, which denotes a binary number."
+    },
+    "HumanEval/120": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The output list should in ascending order."
+    },
+    "HumanEval/126": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The term 'more than 1 duplicate' means more than 2 occurences of a number."
+    },
+    "HumanEval/132": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "A 'nested square bracket' refers to at least one square bracket enclosed within another square bracket. The function should return true if the input string contains at least one such instance, regardless of whether other brackets in the string are properly closed. Return false if no nested square brackets are found."
+    },
+    "HumanEval/145": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "In the sum of digit number function, if the input number is negative, the first digit of the sum should be considered as negative."
+    },
+    "HumanEval/163": {
+        "Self Reflection": "",
+        "Usage": "",
+        "Failure": "",
+        "Clarification": "The term 'even digits' refers exclusively to single-digit even numbers."
+    }
+}
